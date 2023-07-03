@@ -28,6 +28,8 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 
     if (rawMDX === '404: Not Found') return undefined
 
+    console.log(res)
+
     const { frontmatter, content } = await compileMDX<{ title: string, date: string, tags: string[] }>({
         source: rawMDX,
         components: {
